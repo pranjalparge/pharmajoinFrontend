@@ -25,7 +25,7 @@ const JobCard = ( ) => {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch("http://localhost:3000/api/get_all_vacancy")
+    fetch("148.135.138.10:3000/api/get_all_vacancy")
       .then((response) => response.json())
       .then((data) => {
         if (data.jobs) {
