@@ -1,0 +1,94 @@
+.float:before {
+	content:'Join Group';    
+	position: absolute;
+    left: -114px;
+    top: 16px;
+    font-size: 15px;
+    background: #05940b;
+    padding: 5px 19px;
+    border-radius: 30px;
+    color: #ffffff;
+	}
+	
+	.fa-brands, .fab {
+    line-height: 2;
+}
+
+.float3{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom: 21%;
+    margin-bottom: -55px;
+	right:11px;
+	color: white !important;
+	background-color:#0088cc;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  	font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  	z-index:100;
+}
+	
+.float3:before {
+    content: 'Join Group';
+    width: 109px;
+    position: absolute;
+    left: -115px;
+    top: 15px;
+    font-size: 15px;
+    background: #0088cc;
+    padding: 5px 10px;
+    border-radius: 30px;
+    color: #ffffff;
+}
+.float2{
+	margin-bottom: -133px;
+	background-color: #607d8b;
+}
+
+.float2:before{
+	content: 'References';
+	padding: 5px 3px;
+	background: #607d8b;
+}
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom: 30%;
+    margin-bottom: -55px;
+	right:11px;
+	color: white !important;
+	background-color:#05940b;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  	font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  	z-index:100;
+}
+.my-float{font-family:FontAwesome;
+	margin-top:16px;
+}
+
+.walk-in-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+    background-color: #f0ad4e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .company-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+  .css-1r6pbow-MuiChip-root .MuiChip-icon {
+    color: #008a28 !important;
+}
