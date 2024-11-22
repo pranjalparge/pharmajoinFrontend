@@ -22,10 +22,12 @@ const JobCard = ( ) => {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 3;
+const baseURL = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
     // Fetch data from the API
-    fetch("148.135.138.10:3000/api/get_all_vacancy")
+  
+    fetch(`${baseURL}/api/get_all_vacancy`)
       .then((response) => response.json())
       .then((data) => {
         if (data.jobs) {
