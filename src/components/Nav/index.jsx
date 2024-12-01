@@ -19,7 +19,7 @@
 
 import * as React from "react";
 import { useEffect } from "react";
-import Logo from "../../assets/logoPj.jpg"
+import Logo from "../../assets/logo.jpg"
 import { useSelector } from "react-redux";
 
 import Contact from "../../assets/icon.png";
@@ -72,7 +72,7 @@ function ResponsiveAppBar() {
       <AppBar position="static" style={{ background: "#fff" }}>
         <Container maxWidth="xl">
           <Toolbar >
-   <img src={Logo}   width={42}/>
+   <img src={Logo}  href="#" width="20%"/>
 
 
             <Box sx={{ marginLeft: "auto", display: "flex", gap: 2 }}>
@@ -100,12 +100,18 @@ function ResponsiveAppBar() {
                     </a>
               </Tooltip>
               <Tooltip title="LinkedIn">
+              <a
+                    href="https://www.linkedin.com/in/sachin-kedar-092977339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
               <img
                       src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
                       alt="LinkedIn"
                       width="30"
                       height="30"
                     />
+                          </a>
               </Tooltip>
               <Tooltip title="Whatsup">
               <a

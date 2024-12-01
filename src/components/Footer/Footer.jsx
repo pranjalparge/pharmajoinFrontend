@@ -6,6 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
 const Footer = () => {
   return (
+
     <Box
       sx={{
         backgroundColor: '#f5f5f5',
@@ -162,24 +163,25 @@ const Footer = () => {
         }}
       >
         <Typography variant="body2" color="#fff"      >
-        © 2024 Pharmajoin9@gmail.com • All rights reserved
+        © 2024 http://pharmajoin.in/ • All rights reserved
         </Typography>
-        <Box display="flex" justifyContent="center" mt={1}>
-          <Link href="#" underline="none" color="#fff"   sx={{ mx: 1 }}>
+        <Box display="flex" justifyContent="center" mt={1} flexDirection={"column"}>
+        <Link href="/postyourjob" underline="none" color="#fff"   sx={{ mx: 1 }}>
+          Post Your Job
+          </Link>
+          <Link href="/privacypolicy" underline="none" color="#fff"   sx={{ mx: 1 }}>
             Privacy Policy
           </Link>
-          <Link href="#" underline="none" color="#fff"   sx={{ mx: 1 }}>
-            Terms of Use
+          <Link href="/aboutUs" underline="none" color="#fff"   sx={{ mx: 1 }}>
+     About Us
           </Link>
           <Link href="#" underline="none" color="#fff"   sx={{ mx: 1 }}>
-            Sales and Refunds
+        Disclaimer
           </Link>
           <Link href="#" underline="none" color="#fff"   sx={{ mx: 1 }}>
-            Legal
+    Contact Us
           </Link>
-          <Link href="#" underline="none" color="#fff"   sx={{ mx: 1 }}>
-            Site Map
-          </Link>
+         
         </Box>
       </Box>
     </Box>

@@ -74,7 +74,7 @@ const ConsultationSection = () => {
             }}
           >
 
-    +919767496322
+    {/* +919767496322 */}
           </a><br/>
           <a
             href=""
@@ -85,7 +85,7 @@ const ConsultationSection = () => {
             }}
           >
 
-Pharmajoin9@gmail.com
+{/* Pharmajoin9@gmail.com */}
           </a>
         </Typography>
       </Box>

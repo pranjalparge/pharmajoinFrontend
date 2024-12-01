@@ -1,25 +1,21 @@
-
-
-import Consultant from '../consultantSection/index'
-import Elearning from '../eLearningSection/index'
-import OnlineAddmission from '../onlineAdmission/index'
-import JobsByQuali from '../jobsbyqual/index'
-import JobCard from '../jobCard'
+import Consultant from "../consultantSection/index";
+import Elearning from "../eLearningSection/index";
+import OnlineAddmission from "../onlineAdmission/index";
+import JobsByQuali from "../jobsbyqual/index";
+import JobCard from "../jobCard";
 
 function App() {
-  
   return (
     <>
+      <JobCard />
+      <Consultant />
 
-      <Consultant/>     <JobCard/>
-      <Elearning/>
-      <JobsByQuali/>
+      <Elearning />
+      <JobsByQuali />
       {/* <OnlineAddmission/>
       <Dynamic/> */}
-    
-   
     </>
-  )
+  );
 }
 
-export default App
+export default App;

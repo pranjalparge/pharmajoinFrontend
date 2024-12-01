@@ -16,17 +16,15 @@ import StarIcon from "@mui/icons-material/Star";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { Pagination } from "@mui/material";
 
-
-const JobCard = ( ) => {
-
+const JobCard = () => {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 3;
-const baseURL = import.meta.env.VITE_SERVER_URL;
+  const baseURL = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
     // Fetch data from the API
-  
+
     fetch(`${baseURL}/api/get_all_vacancy`)
       .then((response) => response.json())
       .then((data) => {
@@ -59,7 +57,7 @@ const baseURL = import.meta.env.VITE_SERVER_URL;
         // justifyContent: "space-between",
       }}
     >
-              {/* <div className="gb-grid-wrapper gb-grid-wrapper-8f609f0c gb-query-loop-wrapper">
+      {/* <div className="gb-grid-wrapper gb-grid-wrapper-8f609f0c gb-query-loop-wrapper">
           {currentJobs.map((job) => (
             <div key={job._id} className="job-card">
               <div className="card-header">
@@ -95,112 +93,143 @@ const baseURL = import.meta.env.VITE_SERVER_URL;
           ))}
         </div> */}
 
-     <>
-      {currentPageJobs.map((job) => (
-        <Card
-          key={job._id}
-          sx={{
-            maxWidth: 1000,
-            margin: "auto",
-            padding: 2,
-            border: "1px solid #e0e0e0",
-            boxShadow: 2,
-            borderRadius: "8px",
-            mb: 2,
-          }}
-        >
-          <CardContent>
-            <button className="walk-in-btn">Walk In Interview</button>
+      <>
+        {currentPageJobs.map((job) => (
+          <Card
+            key={job._id}
+            sx={{
+              maxWidth: 1000,
+              margin: "auto",
+              padding: 2,
+              border: "1px solid #e0e0e0",
+              boxShadow: 2,
+              borderRadius: "8px",
+              mb: 2,
+            }}
+          >
+            <CardContent>
+              {/* Job Title */}
+              <Typography variant="h6" fontWeight="bold" gutterBottom>
+                {job.job_title}
+              </Typography>
 
-            {/* Job Title */}
-            <Typography variant="h6" fontWeight="bold" gutterBottom>
-              {job.job_title}
-            </Typography>
-
-            {/* Company and Rating */}
-            <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                <img
-                  src={job.company_logo || "https://via.placeholder.com/50"}
-                  alt={`${job.company_name} Icon`}
-                  className="company-icon"
-                  style={{ width: "50px", height: "50px", marginRight: "8px" }}
+              {/* Company and Rating */}
+              <Stack
+                direction="row"
+                alignItems="center"
+                spacing={1}
+                sx={{ mb: 1 }}
+              >
+                <Typography variant="subtitle1" color="text.secondary">
+                  <img
+                    src={job.img}
+                    alt={`${job.company_name} Icon`}
+                    className="company-icon"
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      marginRight: "8px",
+                    }}
+                  />
+                  {job.company_name}
+                </Typography>
+                <Chip
+                  icon={
+                    <VerifiedIcon
+                      fontSize="small"
+                      sx={{ color: "#268112 !important" }}
+                    />
+                  }
+                  label="Verified"
+                  size="small"
+                  sx={{ background: "#a8fa93 !important" }}
                 />
-                {job.company_name}
-              </Typography>
-              <Chip
-                icon={<VerifiedIcon fontSize="small" sx={{}} />}
-                label="Verified"
-                size="small"
-                sx={{  }}
-              />
-            </Stack>
+              </Stack>
 
-            {/* Experience, Salary, and Location */}
-            <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-              <Box display="flex" alignItems="center" gap={0.5}>
-                <WorkIcon fontSize="small" />
-                <Typography variant="body2">{job.experience}</Typography>
-              </Box>
-              <Typography variant="body2" color="text.secondary">
+              {/* Experience, Salary, and Location */}
+              <Stack
+                direction="row"
+                spacing={2}
+                alignItems="center"
+                sx={{ mb: 2 }}
+              >
+                <Box display="flex" alignItems="center" gap={0.5}>
+                  <WorkIcon fontSize="small" />
+                  <Typography variant="body2">{job.experience}</Typography>
+                </Box>
+                {/* <Typography variant="body2" color="text.secondary">
                 ₹ {job.salary || "Not disclosed"}
-              </Typography>
-              <Box display="flex" alignItems="center" gap={0.5}>
+              </Typography> */}
+                {/* <Box display="flex" alignItems="center" gap={0.5}>
                 <LocationOnIcon fontSize="small" />
                 <Typography variant="body2">{job.location || "Location not available"}</Typography>
-              </Box>
-            </Stack>
+              </Box> */}
+              </Stack>
 
-            {/* Job Description */}
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ mb: 2 }}
-              noWrap
-            >
-              {job.description || "No job description provided."}
-            </Typography>
-
-            {/* Tags */}
-            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", mb: 2 }}>
-              {(job.tags || []).map((tag) => (
-                <Chip key={tag} label={tag} size="small" variant="outlined" />
-              ))}
-            </Stack>
-
-            {/* Footer: Time & Apply Button */}
-            <Stack direction="row" justifyContent="space-between" alignItems="center">
-              <Typography variant="body2" color="text.secondary">
-                Valid Upto: {job.valid_upto}
-              </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                href={job.apply_link || "https://t.me/pharmajoin"}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Job Description */}
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ mb: 2, fontWeight: "bold" }}
               >
-                Apply Now
-              </Button>
-            </Stack>
-          </CardContent>
-        </Card>
-      ))}
+                Decription: &nbsp;
+                {job.decription || "No job description provided."}
+              </Typography>
 
-      {/* Pagination */}
-      <Stack alignItems="center" mt={3}>
-        <Pagination
-          count={totalPages}
-          page={currentPage}
-          onChange={handlePageChange}
-          color="primary"
-          size="large"
-        />
-      </Stack>
-    </>
+              {/* Tags */}
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{ flexWrap: "wrap", mb: 2 }}
+              >
+                {(job.tags || []).map((tag) => (
+                  <Chip key={tag} label={tag} size="small" variant="outlined" />
+                ))}
+              </Stack>
 
+              {/* Footer: Time & Apply Button */}
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Typography variant="body2" color="text.secondary">
+                  {job.valid_upto && (
+                    <>
+                      {" "}
+                      <span style={{ fontWeight: "bold" }}>
+                        Valid Upto:
+                      </span>{" "}
+                      {job.valid_upto}
+                    </>
+                  )}
+                </Typography>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  href={`/jobapply?jobId=${job._id}`}
+                  target="_self" // Change to _self to open in the same tab
+                  rel="noopener noreferrer"
+                >
+                  Apply Now
+                </Button>
+              </Stack>
+            </CardContent>
+          </Card>
+        ))}
 
+        {/* Pagination */}
+        <Stack alignItems="center" mt={3}>
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+            size="large"
+          />
+        </Stack>
+      </>
     </Box>
   );
 };

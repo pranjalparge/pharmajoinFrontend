@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "@mui/material";
 import { Grid, Typography, Paper } from '@mui/material';
 
 const qualifications = [
@@ -30,6 +31,7 @@ function QualificationsGrid() {
       <Grid container spacing={2} justifyContent="center">
         {qualifications.map((qual, index) => (
           <Grid item xs={6} sm={4} md={3} key={index}>
+               <Link href="/jobapply" underline="none"> 
             <Paper
               style={{
                 backgroundColor: qual.color,
@@ -42,6 +44,7 @@ function QualificationsGrid() {
             >
               {qual.name}
             </Paper>
+            </Link>
           </Grid>
         ))}
       </Grid>
