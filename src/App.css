@@ -13,7 +13,28 @@
 	.fa-brands, .fab {
     line-height: 2;
 }
+.logo {
+    width: 20%;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    .logo {
+      width: 60%;
+    }
+  }
 
+
+  .social {
+ 
+  }
+  
+  @media (max-width: 600px) {
+  .social {
+
+      width: 20px;
+    }
+  }
 .float3{
 	position:fixed;
 	width:60px;

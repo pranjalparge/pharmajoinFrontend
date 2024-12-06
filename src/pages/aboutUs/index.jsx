@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import Navbar from '../../components/Navbar/Navbar';
 import Nav from '../../components/Nav/index';
+import Footer from '../../components/Footer/Footer';
 import Aboutus from '../../assets/privacy.svg'
 
 const AboutUs = () => {
@@ -59,7 +60,9 @@ How to Post a Job?
           />
         </Grid>
       </Grid>
-    </Box></>
+    </Box>
+    <Footer/>
+    </>
   );
 };
 

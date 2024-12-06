@@ -54,6 +54,7 @@ const ConsultationSection = () => {
           NOW
         </Typography>
         <Button
+        href="/contactUs"
           variant="contained"
           sx={{
             backgroundColor: "#007bff",

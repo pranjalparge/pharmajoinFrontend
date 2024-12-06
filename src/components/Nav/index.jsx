@@ -19,7 +19,7 @@
 
 import * as React from "react";
 import { useEffect } from "react";
-import Logo from "../../assets/logo.jpg"
+import Logo from "../../assets/logo.jpg";
 import { useSelector } from "react-redux";
 
 import Contact from "../../assets/icon.png";
@@ -71,67 +71,76 @@ function ResponsiveAppBar() {
     <>
       <AppBar position="static" style={{ background: "#fff" }}>
         <Container maxWidth="xl">
-          <Toolbar >
-   <img src={Logo}  href="#" width="20%"/>
-
+          <Toolbar>
+            <img src={Logo} href="/" className="logo" />
 
             <Box sx={{ marginLeft: "auto", display: "flex", gap: 2 }}>
-              <Typography color="#000">Visit us on</Typography>
+              <Typography
+                color="#000"
+                sx={{
+                  display: { xs: "none", sm: "block" }, // Hide on mobile view (xs), show on larger screens (sm and up)
+                }}
+              >
+                Visit us on
+              </Typography>
               <Tooltip title="Facebook">
-              <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                      alt="Facebook"
-                      width="30"
-                      height="30"
-                    />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                  alt="Facebook"
+                  width="30"
+                  height="30"
+                  className="social"
+                />
               </Tooltip>
               <Tooltip title="Telegram">
-              <a
-                    href="https://t.me/pharmajoin"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-              <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-                      alt="Telegram"
-                      width="30"
-                      height="30"
-                    />
-                    </a>
+                <a
+                  href="https://t.me/pharmajoin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+                    alt="Telegram"
+                    width="30"
+                    height="30"
+                            className="social"
+                  />
+                </a>
               </Tooltip>
               <Tooltip title="LinkedIn">
-              <a
-                    href="https://www.linkedin.com/in/sachin-kedar-092977339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-              <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
-                      alt="LinkedIn"
-                      width="30"
-                      height="30"
-                    />
-                          </a>
+                <a
+                  href="https://www.linkedin.com/in/sachin-kedar-092977339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                    alt="LinkedIn"
+                    width="30"
+                    height="30"
+                            className="social"
+                  />
+                </a>
               </Tooltip>
               <Tooltip title="Whatsup">
-              <a
-                    href="https://chat.whatsapp.com/Kbypm5EOrMiIKDnAG1G7vb"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-              <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-                      alt="WhatsApp"
-                      width="30"
-                      height="30"
-                    />
-                    </a>
+                <a
+                  href="https://chat.whatsapp.com/Kbypm5EOrMiIKDnAG1G7vb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                    alt="WhatsApp"
+                    width="30"
+                    height="30"
+                            className="social"
+                  />
+                </a>
               </Tooltip>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
-  
     </>
   );
 }

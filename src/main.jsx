@@ -9,6 +9,8 @@ import JobApply from './pages/jobApplyForm/index.jsx'
 import Privacy from './pages/privacyPolicy/index.jsx'
 import AboutUs from './pages/aboutUs/index.jsx'
 import PostYourJob from './pages/postyourjob/index.jsx'
+import ContactUs from './pages/contactUs/index.jsx'
+import Disclaimer from './pages/disclaimer/index.jsx'
 import { Provider } from 'react-redux'
 // import {Store} from "./config/Store.js"
 
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
     {
       path : "/postyourjob",
       element : <PostYourJob />
+    },
+    {
+      path : "/contactUs",
+      element : <ContactUs />
+    },
+    {
+      path : "/disclaimer",
+      element : <Disclaimer />
     },
 ])
 

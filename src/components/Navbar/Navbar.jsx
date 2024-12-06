@@ -115,30 +115,16 @@ function ResponsiveAppBar() {
               >
                 <MenuIcon />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{ display: { xs: "block", md: "none" } }}
-              >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center',color:"#000" }}>{page}</Typography>
+           
+              <Link href="/" underline="none">   
+                <MenuItem>
+                  <Typography sx={{ textAlign: 'center',color:"#fff" }}>Home</Typography>
                 </MenuItem>
-              ))}
-              </Menu>
+    
+                </Link>
             </Box>
-            <Link href="/" underline="none">     <HomeIcon sx={{ display: { xs: "none", md: "flex",color:"#fff" }, mr: 1 }}  /></Link>
+            <Link href="/" underline="none">   
+              <HomeIcon sx={{ display: { xs: "none", md: "flex",color:"#fff" }, mr: 1 }}  /></Link>
        
 
             {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}

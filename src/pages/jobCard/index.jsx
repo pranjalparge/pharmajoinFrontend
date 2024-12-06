@@ -29,7 +29,7 @@ const JobCard = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.jobs) {
-          setJobs(data.jobs); // Set the jobs array
+          setJobs(data.jobs.reverse());
         }
       })
       .catch((error) => console.error("Error fetching jobs:", error));
@@ -120,7 +120,7 @@ const JobCard = () => {
                 spacing={1}
                 sx={{ mb: 1 }}
               >
-                <Typography variant="subtitle1" color="text.secondary">
+                <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
                   <img
                     src={job.img}
                     alt={`${job.company_name} Icon`}
@@ -169,12 +169,15 @@ const JobCard = () => {
               {/* Job Description */}
               <Typography
                 variant="body2"
-                color="text.secondary"
-                sx={{ mb: 2, fontWeight: "bold" }}
+             
+                sx={{ mb: 2, }}
               >
-                Decription: &nbsp;
+                <span style={{fontWeight:"bold"}}>  Decription:</span>
+               &nbsp;
                 {job.decription || "No job description provided."}
+            
               </Typography>
+    
 
               {/* Tags */}
               <Stack
@@ -220,7 +223,7 @@ const JobCard = () => {
         ))}
 
         {/* Pagination */}
-        <Stack alignItems="center" mt={3}>
+        <Stack alignItems="center" mt={3} mb={2}>
           <Pagination
             count={totalPages}
             page={currentPage}

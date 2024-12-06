@@ -10,7 +10,7 @@ const Footer = () => {
     <Box
       sx={{
         backgroundColor: '#f5f5f5',
-      marginTop:"15%",
+      // marginTop:"15%",
         borderTop: '1px solid #ddd',
       }}
     >
@@ -175,10 +175,10 @@ const Footer = () => {
           <Link href="/aboutUs" underline="none" color="#fff"   sx={{ mx: 1 }}>
      About Us
           </Link>
-          <Link href="#" underline="none" color="#fff"   sx={{ mx: 1 }}>
-        Disclaimer
+          <Link href="disclaimer" underline="none" color="#fff"   sx={{ mx: 1 }}>
+          Disclaimer
           </Link>
-          <Link href="#" underline="none" color="#fff"   sx={{ mx: 1 }}>
+          <Link href="/contactUs" underline="none" color="#fff"   sx={{ mx: 1 }}>
     Contact Us
           </Link>
          
