@@ -154,18 +154,18 @@ const Footer = () => {
       <Box
         sx={{
           textAlign: 'center',
-          marginTop: 4,
+      
         background: "#616161",
 
           borderTop: '1px solid #ddd',
-          paddingTop: 2,
+          padding:5,
  
         }}
       >
         <Typography variant="body2" color="#fff"      >
         © 2024 http://pharmajoin.in/ • All rights reserved
         </Typography>
-        <Box display="flex" justifyContent="center" mt={1} flexDirection={"column"}>
+        <Box display="flex" justifyContent="center" mt={1} flexDirection={"row"}>
         <Link href="/postyourjob" underline="none" color="#fff"   sx={{ mx: 1 }}>
           Post Your Job
           </Link>

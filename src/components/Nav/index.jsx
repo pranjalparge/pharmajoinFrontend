@@ -19,7 +19,7 @@
 
 import * as React from "react";
 import { useEffect } from "react";
-import Logo from "../../assets/logo.jpg";
+import Logo from "../../assets/logo.png";
 import { useSelector } from "react-redux";
 
 import Contact from "../../assets/icon.png";
@@ -103,7 +103,7 @@ function ResponsiveAppBar() {
                     alt="Telegram"
                     width="30"
                     height="30"
-                            className="social"
+                    className="social"
                   />
                 </a>
               </Tooltip>
@@ -118,7 +118,7 @@ function ResponsiveAppBar() {
                     alt="LinkedIn"
                     width="30"
                     height="30"
-                            className="social"
+                    className="social"
                   />
                 </a>
               </Tooltip>
@@ -133,7 +133,7 @@ function ResponsiveAppBar() {
                     alt="WhatsApp"
                     width="30"
                     height="30"
-                            className="social"
+                    className="social"
                   />
                 </a>
               </Tooltip>

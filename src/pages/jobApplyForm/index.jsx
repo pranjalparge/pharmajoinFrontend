@@ -18,6 +18,8 @@ import Nav from "../../components/Nav/index";
 import Footer from "../../components/Footer/Footer";
 import WorkIcon from "@mui/icons-material/Work";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import CircularProgress from '@mui/material/CircularProgress';
+
 import { Pagination } from "@mui/material";
 
 const JobCard = () => {
@@ -25,6 +27,11 @@ const JobCard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 3;
   const [open, setOpen] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const handleClick = () => {
+    setShowMessage(true);
+  };
 
   const baseURL = import.meta.env.VITE_SERVER_URL;
 
@@ -56,10 +63,6 @@ const JobCard = () => {
       });
   }, [jobId]);
 
-
-  // const totalPages = Math.ceil(jobs.length / jobsPerPage);
-  // const startIndex = (currentPage - 1) * jobsPerPage;
-  // const currentPageJobs = jobs.slice(startIndex, startIndex + jobsPerPage);
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
@@ -127,18 +130,13 @@ const JobCard = () => {
       alert("An error occurred while submitting the form.");
     }
   };
-  // const [searchParams] = useSearchParams();
-  // const jobId = searchParams.get("jobId");
-  // const job = currentPageJobs.find((job) => job._id === jobId);
-
-  // Fetch job details using the jobId or display them if passed via props
 
   return (
     <>
       {" "}
       <Nav />
       <Navbar />
-      <Box sx={{ marginTop: 4 }}>
+      <Box sx={{ marginTop: "40px",marginBottom:"30px" }}>
         <div>
           {job ? (
             <>
@@ -190,38 +188,20 @@ const JobCard = () => {
                     />
                   </Stack>
                   <Stack
-                direction="row"
-                spacing={2}
-                alignItems="center"
-                sx={{ mb: 2 }}
-              >
-                <Box display="flex" alignItems="center" gap={0.5}>
-                  <WorkIcon fontSize="small" />
-                  <Typography variant="body2">{job.experience}</Typography>
-                </Box>
-                {/* <Typography variant="body2" color="text.secondary">
-                ₹ {job.salary || "Not disclosed"}
-              </Typography> */}
-                {/* <Box display="flex" alignItems="center" gap={0.5}>
-                <LocationOnIcon fontSize="small" />
-                <Typography variant="body2">{job.location || "Location not available"}</Typography>
-              </Box> */}
-              </Stack>
+                    direction="row"
+                    spacing={2}
+                    alignItems="center"
+                    sx={{ mb: 2 }}
+                  >
+                    <Box display="flex" alignItems="center" gap={0.5}>
+                      <WorkIcon fontSize="small" />
+                      <Typography variant="body2">{job.experience}</Typography>
+                    </Box>
+                  </Stack>
                   <Typography sx={{ mb: 2 }}>
                     <span style={{ fontWeight: "bold" }}> Description:</span>{" "}
                     {job.decription}
                   </Typography>
-                  {/* <Typography>
-                    <span style={{ fontWeight: "bold" }}> Apply Link:</span>{" "}
-                    <a
-                      href={job.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "blue", textDecoration: "underline" }}
-                    >
-                      {job.link}
-                    </a>
-                  </Typography> */}
 
                   <Stack
                     direction="row"
@@ -264,48 +244,75 @@ const JobCard = () => {
                 <Typography variant="h5" fontWeight="bold" gutterBottom>
                   {job.heading1}
                 </Typography>
-                <Typography
-                  variant="body1"
-                  color="text.secondary"
-                  sx={{ mb: 2 }}
-                >
-                  {job.content1}
-                </Typography>
 
-                <Typography variant="h5" fontWeight="bold" gutterBottom>
-                  {job.heading2}
-                </Typography>
-                <Typography
+                {/* Iterate over content1 array */}
+
+                {job.content1.map((item, index) => (
+                  <>
+                    <Typography variant="body1" fontWeight="bold">
+                      {item.number} {item.head}
+                    </Typography>
+                    <Typography variant="body2" color="#272727" sx={{paddingTop:"8px"}}>
+                      - {item.subheading}
+                    </Typography>
+                  </>
+                ))}
+
+                <Typography variant="h5" fontWeight="bold" gutterBottom mt={2}>
+                  {job.heading2}    <Typography
                   variant="body1"
-                  color="text.secondary"
-                  sx={{ mb: 2 }}
+                  color="#272727"
+                  
                 >
                   {job.content2}
                 </Typography>
+                </Typography>
+            
 
                 <Typography variant="h5" fontWeight="bold" gutterBottom>
-                  {job.heading3}
-                </Typography>
-                <Typography
+                  {job.heading3}        <Typography
                   variant="body1"
-                  color="text.secondary"
-                  sx={{ mb: 2 }}
+                  color="#272727"
+               
                 >
                   {job.content3}
                   <br />
                 </Typography>
-                {job.link && (
-                <Typography>
-                  <span style={{ fontWeight: "bold" }}> Apply Link:</span>{" "}
-                  <a
-                    href={job.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "blue", textDecoration: "underline" }}
-                  >
-                    {job.link}
-                  </a>
                 </Typography>
+        
+                {job.link && (
+                  <>
+                    <Button
+                      sx={{
+                        marginTop:"10px",
+                        marginBottom:"10px",
+                        background: "#ea9700eb",
+                        padding: "10px",
+                        color: "#fff",
+                      }}
+                      color="primary"
+                      size="small"
+                      onClick={handleClick} // Trigger the state change on button click
+                    >
+                      Apply For Job
+                    </Button>
+
+                    {showMessage && ( // Conditionally render the Typography based on the state
+                      <Typography>
+                        <span style={{ fontWeight: "bold" }}>
+                          To Apply For this job please visit &nbsp;
+                        </span>{" "}
+                        <a
+                          href={job.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: "blue", textDecoration: "underline" }}
+                        >
+                          {job.link}
+                        </a>
+                      </Typography>
+                    )}
+                  </>
                 )}
               </div>
             </>
@@ -315,7 +322,7 @@ const JobCard = () => {
               color="text.secondary"
               textAlign="center"
             >
-              No job found for the provided ID.
+              <CircularProgress />
             </Typography>
           )}
         </div>

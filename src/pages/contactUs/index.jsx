@@ -3,7 +3,7 @@ import { Box, Grid, TextField, Button, Typography } from "@mui/material";
 import Navbar from '../../components/Navbar/Navbar';
 import Nav from '../../components/Nav/index';
 import Footer from '../../components/Footer/Footer';
-import Contact from '../../assets/contact.jpg';
+import Contact from '../../assets/contact.webp';
 import axios from "axios";
 const ContactUsUI = () => {
 
@@ -67,6 +67,7 @@ const ContactUsUI = () => {
       <Grid
         container
         sx={{
+
           maxWidth: 1200,
           backgroundColor: "white",
           borderRadius: "16px",
@@ -81,10 +82,11 @@ const ContactUsUI = () => {
           md={5}
           sx={{
             padding: 4,
-            backgroundColor: "#f8fafc",
+            backgroundColor: "#fff",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+          
           }}
         >
           <Typography
@@ -102,6 +104,7 @@ const ContactUsUI = () => {
         display: "flex",
         flexDirection: "column",
         gap: 3,
+      
       }}
     >
       <TextField

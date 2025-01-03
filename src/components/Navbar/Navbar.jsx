@@ -1,45 +1,31 @@
-// import {useEffect} from 'react'
-// import { useSelector } from 'react-redux'
 
-// function Navbar() {
-//     const item = useSelector(state => state.homeItems)
-//     useEffect(()=>{
-//         console.log(item)
-//     },[])
-//   return (
-//     <div>
-//       {item.NavItems.map((items)=>(
-//         items.navItems
-//       ))}
-//     </div>
-//   )
-// }
-
-// export default Navbar
 
 import * as React from "react";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect,useState } from "react";
 
-import Contact from "../../assets/icon.png";
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
+import WorkIcon from '@mui/icons-material/Work';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import Logo from "../../assets/logo.png";
 import AppBar from "@mui/material/AppBar";
-import HomeIcon from "@mui/icons-material/Home";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+
 import { Link } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
 
 const pages = [ "Internships",
   "CDM",
@@ -53,26 +39,25 @@ const pages = [ "Internships",
   "Regulatory Affairs",
   "Research & Development",
  ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+
+
+
+  const handleOpenNavMenu = () => {
+    setDrawerOpen(true);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setDrawerOpen(false);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+
+
+
 
   // const item = useSelector((state) => state.homeItems);
   useEffect(() => {
@@ -86,47 +71,64 @@ function ResponsiveAppBar() {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-            {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: '#000',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography> */}
+     
 
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="#fff"
-              >
-                <MenuIcon />
-              </IconButton>
-           
-              <Link href="/" underline="none">   
-                <MenuItem>
-                  <Typography sx={{ textAlign: 'center',color:"#fff" }}>Home</Typography>
-                </MenuItem>
-    
-                </Link>
-            </Box>
+<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+        <IconButton
+          size="large"
+          aria-label="menu"
+          aria-controls="menu-appbar"
+          aria-haspopup="true"
+          onClick={handleOpenNavMenu}
+          sx={{ color: '#fff' }}
+        >
+          <MenuIcon />
+        </IconButton>
+      </Box>
+
+      {/* Drawer for Mobile Navigation */}
+      <Drawer anchor="left" open={drawerOpen} onClose={handleCloseNavMenu}>
+        <Box sx={{ width: 250, }}p={3}>
+        <img src={Logo} href="/" className="logo" />
+        <List>
+            <Link href="/" underline="none" color="inherit">
+              <ListItem button onClick={handleCloseNavMenu}>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItem>
+            </Link>
+            <Link href="/aboutUs" underline="none" color="inherit">
+              <ListItem button onClick={handleCloseNavMenu}>
+                <ListItemIcon>
+                  <InfoIcon />
+                </ListItemIcon>
+                <ListItemText primary="About" />
+              </ListItem>
+            </Link>
+            <Link href="/allJobs" underline="none" color="inherit">
+              <ListItem button onClick={handleCloseNavMenu}>
+                <ListItemIcon>
+                  <WorkIcon />
+                </ListItemIcon>
+                <ListItemText primary="All Jobs" />
+              </ListItem>
+            </Link>
+            <Link href="/contactUs" underline="none" color="inherit">
+              <ListItem button onClick={handleCloseNavMenu}>
+                <ListItemIcon>
+                  <ContactMailIcon />
+                </ListItemIcon>
+                <ListItemText primary="Contact" />
+              </ListItem>
+            </Link>
+          </List>
+        </Box>
+      </Drawer>
             <Link href="/" underline="none">   
               <HomeIcon sx={{ display: { xs: "none", md: "flex",color:"#fff" }, mr: 1 }}  /></Link>
-       
-
+         
             {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
             <Typography
               variant="h5"

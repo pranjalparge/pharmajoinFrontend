@@ -1,6 +1,12 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Allow direct access to ads.txt and sitemap.xml
+  RewriteCond %{REQUEST_URI} ^/(ads\.txt|sitemap\.xml)$ [NC]
+  RewriteRule ^ - [L]
+
+  # Redirect all other routes to index.html (for SPA)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ index.html [L]

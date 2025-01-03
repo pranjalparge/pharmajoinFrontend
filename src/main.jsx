@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar.jsx'
 import {RouterProvider,createBrowserRouter} from "react-router-dom"
 import Home from './pages/Home.jsx'
 import JobApply from './pages/jobApplyForm/index.jsx'
+import Jobs from './pages/jobs/index.jsx'
 import Privacy from './pages/privacyPolicy/index.jsx'
 import AboutUs from './pages/aboutUs/index.jsx'
 import PostYourJob from './pages/postyourjob/index.jsx'
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
      {
       path : "/jobapply",
       element : <JobApply />
+    },
+    {
+      path : "/allJobs",
+      element : <Jobs />
     },
     {
       path : "/privacypolicy",

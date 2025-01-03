@@ -390,20 +390,7 @@ const AboutUs = () => {
             </Box>
           </Grid>
 
-          {/* Image Section */}
-          {/* <Grid item xs={12} md={6}>
-            <Box
-              component="img"
-              src={Aboutus} // Replace with your image URL
-              alt="Pharmaceutical Industry"
-              sx={{
-                width: "100%",
-                height: "auto",
-                borderRadius: "8px",
-                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-              }}
-            />
-          </Grid> */}
+       
         </Grid>
       </Box>
     </>
